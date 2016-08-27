@@ -65,13 +65,14 @@ function displayCurrentQuesiton() {
 	for (i=0; i<numAnswers; i++){
 		answer = questions[currentQuestion].answers[i];
 		$('<li><input type="radio" value=' + i + ' name="dynradio" class="btn-answer"> ' + answer + '</li>').appendTo('#answersList');
-		$('.btn-answer').on('click', function(){
-			console.log("it works");
-			currentQuestion++;
-			console.log(currentQuestion);
-			stop();
-		});
-	}
+		}
+	
+	$('.btn-answer').on('click', function(){
+		console.log("it works");
+		currentQuestion = currentQuestion + 1;
+		console.log(currentQuestion);
+		stop();
+	});
 
 }
 
