@@ -1,6 +1,6 @@
 var questions = [{
 	question: "What was the name of Catelyn Stark's father?",
-	answers: ["Lord Aryn", "Lord Hoster", "Lord Tywin", "Lord Edmure"],
+	answers: ["Lord Aryn", " Lord Hoster", "Lord Tywin", "Lord Edmure"],
 	correctAnswer: 1
 }, {
 	question: "What was the name of Arya's direwolf?",
@@ -37,6 +37,7 @@ $(document).ready(function() {
 	decrement();
 	displayCurrentQuesiton();
 
+
 	$('#quizMessage').hide();
 
 
@@ -50,8 +51,6 @@ $(document).ready(function() {
 function displayCurrentQuesiton() {
 	var question = questions[currentQuestion].question;
 	console.log(question);
-	//var questionClass = $(document).find(".gameContainer > #question");
-	//var answersList = $(document).find(".quizContainer > #answersList");
 	var amountAnswers = questions[currentQuestion].answers;
 	console.log(amountAnswers);
 	var numAnswers= amountAnswers.length;
@@ -65,7 +64,13 @@ function displayCurrentQuesiton() {
 	var answer;
 	for (i=0; i<numAnswers; i++){
 		answer = questions[currentQuestion].answers[i];
-		$('<li><input type="radio" value=' + i + ' name="dynradio">' + answer + '</li>').appendTo('#answersList');
+		$('<li><input type="radio" value=' + i + ' name="dynradio" class="btn-answer"> ' + answer + '</li>').appendTo('#answersList');
+		$('.btn-answer').on('click', function(){
+			console.log("it works");
+			currentQuestion++;
+			console.log(currentQuestion);
+			stop();
+		});
 	}
 
 }
